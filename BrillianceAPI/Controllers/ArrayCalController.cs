@@ -10,36 +10,30 @@ namespace BrillianceAPI.Controllers
     [ApiController]
     public class ArrayCalController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productsIds"></param>
+        /// <returns></returns>
+        [HttpGet("reverse")]
+        public ActionResult<string[]> GetReverseProducts([FromQuery]string[] productsIds)
         {
-            return new string[] { "value1", "value2" };
+            //reverse bubble sort
+            return productsIds;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productsIds"></param>
+        /// <returns></returns>
+        [HttpGet("deletepart")]
+        public ActionResult<string[]> GetDeletePartProducts([FromQuery]int position, [FromQuery]string[] productsIds)
         {
-            return "value";
+            //bubble sort , get rid of one of them
+            return productsIds;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }
